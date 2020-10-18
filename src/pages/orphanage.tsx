@@ -10,6 +10,8 @@ import api from '../services/api';
 
 import '../styles/pages/orphanage.css';
 
+const apiBaseURL = process.env.REACT_APP_API_BASE_URL;
+
 interface Orphanage {
   latitude: number;
   longitude: number;
@@ -50,7 +52,7 @@ export default function Orphanage() {
 
       <main>
         <div className="orphanage-details">
-          <img src={`http://localhost:3333${orphanage.images[activeImageIndex].url}`} alt={orphanage.name} />
+          <img src={`${apiBaseURL}${orphanage.images[activeImageIndex].url}`} alt={orphanage.name} />
 
           <div className="images">
             {orphanage.images.map((image, index) => (
@@ -60,7 +62,7 @@ export default function Orphanage() {
                 type="button"
                 onClick={() => setActiveImageIndex(index)}
               >
-                <img src={`http://localhost:3333${image.url}`} alt={orphanage.name} />
+                <img src={`${apiBaseURL}${image.url}`} alt={orphanage.name} />
               </button>
             ))}
           </div>
