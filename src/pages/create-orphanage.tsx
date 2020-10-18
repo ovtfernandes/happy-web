@@ -87,7 +87,7 @@ export default function CreateOrphanage() {
                 url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
 
-              {position.latitude && (
+              {position.latitude !== 0 && (
                 <Marker
                   interactive={false}
                   icon={mapIcon}
